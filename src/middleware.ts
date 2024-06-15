@@ -8,8 +8,6 @@ export default createMiddleware({
         publishableKey: process.env.VITE_CLERK_PUBLISHABLE_KEY,
       });
 
-      // clerkClient.clients.verifyClient(token)
-
       event.locals.auth = requestState.toAuth();
     }
   ]
