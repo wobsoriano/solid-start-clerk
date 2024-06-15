@@ -8,7 +8,7 @@ export default function Dashboard() {
         <p>This is a protected page.</p>
 
         <ul>
-          <li><a href="/me">Me</a></li>
+          <li><a href="/dashboard/me">Me</a></li>
           <li><a href="/">Return to index</a></li>
         </ul>
     </main>
