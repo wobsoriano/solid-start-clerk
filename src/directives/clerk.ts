@@ -3,16 +3,16 @@ import { useClerk } from '~/components/ClerkProvider';
 
 const components = ['SignIn', 'SignUp', 'UserButton'] as const
 
-export function clerkUI(el: HTMLDivElement, value: () => typeof components[number]) {
+export function clerkUI(el: HTMLDivElement, component: () => typeof components[number]) {
   const { clerk, loaded } = useClerk();
 
   createEffect(() => {
     if (loaded()) {
-      clerk()?.[`mount${value()}`](el);
+      clerk()?.[`mount${component()}`](el);
     }
 
     onCleanup(() => {
-      clerk()?.[`unmount${value()}`](el);
+      clerk()?.[`unmount${component()}`](el);
     });
   });
 }
