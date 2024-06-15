@@ -5,7 +5,7 @@ export default function SignIn() {
   return (
     <main>
       <Title>Sign in</Title>
-      <div use:clerkUI={'sign-in'}></div>
+      <div use:clerkUI="SignIn"></div>
     </main>
   );
 }

@@ -20,7 +20,7 @@ export default function Header() {
           <p class="title">SolidStart + Clerk</p>
         </div>
         <Show when={isSignedIn()} fallback={<a href="/sign-in">Sign In</a>}>
-          <div use:clerkUI="user-button"></div>
+          <div use:clerkUI="UserButton"></div>
         </Show>
       </div>
     </header>
