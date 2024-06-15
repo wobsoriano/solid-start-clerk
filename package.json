@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@clerk/clerk-js": "^5.7.0",
+    "@clerk/clerk-sdk-node": "^5.0.11",
     "@solidjs/meta": "^0.29.4",
     "@solidjs/router": "^0.13.3",
     "@solidjs/start": "^1.0.1",
