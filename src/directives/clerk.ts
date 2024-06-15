@@ -1,41 +1,41 @@
-import { createEffect, onCleanup } from "solid-js";
-import { useClerk } from "~/components/ClerkProvider";
+import { createEffect, onCleanup } from 'solid-js';
+import { useClerk } from '~/components/ClerkProvider';
 
 const uiMap = {
   'sign-in': {
     mount: 'mountSignIn',
-    unmount: 'unmountSignIn',
+    unmount: 'unmountSignIn'
   },
   'sign-up': {
     mount: 'mountSignUp',
-    unmount: 'unmountSignUp',
+    unmount: 'unmountSignUp'
   },
   'user-button': {
     mount: 'mountUserButton',
-    unmount: 'unmountUserButton',
+    unmount: 'unmountUserButton'
   }
-}
+};
 
 export function clerkUI(el: HTMLDivElement, value: keyof typeof uiMap) {
-  const { clerk, loaded } = useClerk()
+  const { clerk, loaded } = useClerk();
 
   createEffect(() => {
     if (loaded()) {
       // @ts-expect-error: TODO: Fix clerk types
-      clerk()?.[uiMap[value()].mount](el)
+      clerk()?.[uiMap[value()].mount](el);
     }
 
     onCleanup(() => {
       // @ts-expect-error: TODO: Fix clerk types
-      clerk()?.[uiMap[value()].unmount](el)
-    })
-  })
+      clerk()?.[uiMap[value()].unmount](el);
+    });
+  });
 }
 
-declare module "solid-js" {
+declare module 'solid-js' {
   namespace JSX {
     interface Directives {
-      clerkUI: keyof typeof uiMap
+      clerkUI: keyof typeof uiMap;
     }
   }
 }

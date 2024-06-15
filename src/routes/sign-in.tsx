@@ -1,5 +1,5 @@
-import { Title } from "@solidjs/meta";
-import { clerkUI } from "~/directives/clerk";
+import { Title } from '@solidjs/meta';
+import { clerkUI } from '~/directives/clerk';
 
 export default function SignIn() {
   return (

@@ -5,18 +5,23 @@
     "dev": "vinxi dev",
     "build": "vinxi build",
     "start": "vinxi start",
-    "version": "vinxi version"
+    "version": "vinxi version",
+    "lint": "eslint **/*.{ts,tsx}",
+    "format": "prettier --write \"{src,test}/**/*.{ts,tsx}\""
   },
   "dependencies": {
     "@clerk/clerk-js": "^5.7.0",
     "@clerk/clerk-sdk-node": "^5.0.11",
     "@solidjs/meta": "^0.29.4",
-    "@solidjs/router": "^0.13.3",
+    "@solidjs/router": "^0.13.5",
     "@solidjs/start": "^1.0.1",
     "solid-js": "^1.8.17",
     "vinxi": "^0.3.11"
   },
   "engines": {
     "node": ">=18"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.2"
   }
 }
