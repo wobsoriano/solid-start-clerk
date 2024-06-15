@@ -1,15 +1,15 @@
 import { Title } from "@solidjs/meta";
-import { createEffect, createMemo } from "solid-js";
+import { useNavigate } from "@solidjs/router";
+import { createEffect } from "solid-js";
 import { useClerk } from "~/components/ClerkProvider";
 
 export default function Dashboard() {
   const { clerk, loaded } = useClerk()
-
-  const hasActiveSessions = createMemo(() => loaded() && clerk()?.client?.activeSessions?.length > 0)
+  const navigate = useNavigate()
 
   createEffect(() => {
-    if (!hasActiveSessions()) {
-      void clerk()?.redirectToAfterSignOut()
+    if (loaded() && !clerk()?.user) {
+      navigate('/sign-in')
     }
   })
 
