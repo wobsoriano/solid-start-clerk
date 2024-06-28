@@ -30,7 +30,11 @@ export const ClerkProvider: Component<Props> = props => {
 
     await instance.load({
       routerPush: (to: string) => navigate(to),
-      routerReplace: (to: string) => navigate(to, { replace: true })
+      routerReplace: (to: string) => navigate(to, { replace: true }),
+      signInForceRedirectUrl: '/dashboard',
+      signUpForceRedirectUrl: '/dashboard',
+      signInUrl: '/sign-in',
+      signUpUrl: '/sign-up',
     });
     setLoaded(true);
   });
