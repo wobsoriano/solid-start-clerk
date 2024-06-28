@@ -1,6 +1,7 @@
 import { createEffect, onCleanup } from 'solid-js';
 import { useClerk } from '~/components/ClerkProvider';
 
+// Add in other UI components needed
 const components = ['SignIn', 'SignUp', 'UserButton'] as const
 
 export function clerkUI(el: HTMLDivElement, component: () => typeof components[number]) {

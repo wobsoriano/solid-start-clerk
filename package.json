@@ -10,13 +10,13 @@
     "format": "prettier --write \"{src,test}/**/*.{ts,tsx}\""
   },
   "dependencies": {
-    "@clerk/clerk-js": "^5.7.0",
-    "@clerk/clerk-sdk-node": "^5.0.11",
+    "@clerk/clerk-js": "^5.7.2",
+    "@clerk/clerk-sdk-node": "^5.0.12",
     "@solidjs/meta": "^0.29.4",
-    "@solidjs/router": "^0.13.5",
-    "@solidjs/start": "^1.0.1",
+    "@solidjs/router": "^0.13.6",
+    "@solidjs/start": "^1.0.2",
     "solid-js": "^1.8.17",
-    "vinxi": "^0.3.11"
+    "vinxi": "^0.3.12"
   },
   "engines": {
     "node": ">=18"
