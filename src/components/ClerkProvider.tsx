@@ -34,7 +34,7 @@ export const ClerkProvider: Component<Props> = props => {
       signInForceRedirectUrl: '/dashboard',
       signUpForceRedirectUrl: '/dashboard',
       signInUrl: '/sign-in',
-      signUpUrl: '/sign-up',
+      signUpUrl: '/sign-up'
     });
     setLoaded(true);
   });

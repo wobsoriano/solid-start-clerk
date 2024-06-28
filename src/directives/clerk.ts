@@ -2,9 +2,9 @@ import { createEffect, onCleanup } from 'solid-js';
 import { useClerk } from '~/components/ClerkProvider';
 
 // Add in other UI components needed
-const components = ['SignIn', 'SignUp', 'UserButton'] as const
+const components = ['SignIn', 'SignUp', 'UserButton'] as const;
 
-export function clerkUI(el: HTMLDivElement, component: () => typeof components[number]) {
+export function clerkUI(el: HTMLDivElement, component: () => (typeof components)[number]) {
   const { clerk, loaded } = useClerk();
 
   createEffect(() => {
@@ -21,7 +21,7 @@ export function clerkUI(el: HTMLDivElement, component: () => typeof components[n
 declare module 'solid-js' {
   namespace JSX {
     interface Directives {
-      clerkUI: typeof components[number];
+      clerkUI: (typeof components)[number];
     }
   }
 }

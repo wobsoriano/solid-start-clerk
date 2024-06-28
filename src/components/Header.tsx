@@ -16,7 +16,7 @@ export default function Header() {
           <Show when={clerk()?.user} fallback={<a href="/sign-in">Sign In</a>}>
             <div use:clerkUI="UserButton"></div>
           </Show>
-        </Show >
+        </Show>
       </div>
     </header>
   );

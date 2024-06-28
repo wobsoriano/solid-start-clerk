@@ -1,6 +1,5 @@
 import { clerkClient } from '@clerk/clerk-sdk-node';
 import { createMiddleware } from '@solidjs/start/middleware';
-// import { sendRedirect, setResponseHeader, setResponseStatus } from 'vinxi/http';
 
 export default createMiddleware({
   onRequest: [
@@ -9,20 +8,15 @@ export default createMiddleware({
         publishableKey: process.env.VITE_CLERK_PUBLISHABLE_KEY
       });
 
-      // TODO: Handle handshake
-      // if (requestState.headers) {
-      //   requestState.headers.forEach((value, key) => setResponseHeader(key, value))
+      const locationHeader = requestState.headers.get('location');
 
-      //   const locationHeader = requestState.headers.get('location')
+      if (locationHeader) {
+        return new Response(null, { status: 307, headers: requestState.headers });
+      }
 
-      //   if (locationHeader) {
-      //     return sendRedirect(locationHeader, 307)
-      //   }
-
-      //   if (requestState.status === 'handshake') {
-      //     throw new Error('Clerk: unexpected handshake without redirect')
-      //   }
-      // }
+      if (requestState.status === 'handshake') {
+        throw new Error('Clerk: unexpected handshake without redirect');
+      }
 
       event.locals.auth = requestState.toAuth();
     }
