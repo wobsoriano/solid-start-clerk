@@ -1,17 +1,9 @@
-import { Show, createMemo } from 'solid-js';
+import { Show } from 'solid-js';
 import { clerkUI } from '~/directives/clerk';
 import { useClerk } from './ClerkProvider';
 
 export default function Header() {
   const { clerk, loaded } = useClerk();
-
-  const isSignedIn = createMemo(() => {
-    if (loaded()) {
-      return Boolean(clerk()?.user);
-    }
-
-    return false;
-  });
 
   return (
     <header class="header">
@@ -19,9 +11,12 @@ export default function Header() {
         <div style="flex-grow: 1;">
           <p class="title">SolidStart + Clerk</p>
         </div>
-        <Show when={isSignedIn()} fallback={<a href="/sign-in">Sign In</a>}>
-          <div use:clerkUI="UserButton"></div>
-        </Show>
+
+        <Show when={loaded()}>
+          <Show when={clerk()?.user} fallback={<a href="/sign-in">Sign In</a>}>
+            <div use:clerkUI="UserButton"></div>
+          </Show>
+        </Show >
       </div>
     </header>
   );
