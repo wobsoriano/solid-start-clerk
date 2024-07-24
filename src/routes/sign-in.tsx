@@ -1,11 +1,11 @@
 import { Title } from '@solidjs/meta';
-import { clerkUI } from '~/directives/clerk';
+import { SignIn } from 'clerk-solid';
 
-export default function SignIn() {
+export default function Page() {
   return (
     <main>
       <Title>Sign in</Title>
-      <div use:clerkUI="SignIn"></div>
+      <SignIn />
     </main>
   );
 }

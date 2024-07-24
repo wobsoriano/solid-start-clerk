@@ -1,14 +1,14 @@
 import { Title } from '@solidjs/meta';
 import { useNavigate } from '@solidjs/router';
 import { createEffect } from 'solid-js';
-import { useClerk } from '~/components/ClerkProvider';
+import { useAuth } from 'clerk-solid';
 
 export default function Dashboard() {
-  const { clerk, loaded } = useClerk();
+  const auth = useAuth();
   const navigate = useNavigate();
 
   createEffect(() => {
-    if (loaded() && !clerk()?.user) {
+    if (auth()?.isLoaded && !auth()?.userId) {
       navigate('/sign-in');
     }
   });

@@ -1,9 +1,8 @@
 import { Show } from 'solid-js';
-import { clerkUI } from '~/directives/clerk';
-import { useClerk } from './ClerkProvider';
+import { useAuth, UserButton } from 'clerk-solid';
 
 export default function Header() {
-  const { clerk, loaded } = useClerk();
+  const auth = useAuth();
 
   return (
     <header class="header">
@@ -12,9 +11,9 @@ export default function Header() {
           <p class="title">SolidStart + Clerk</p>
         </div>
 
-        <Show when={loaded()}>
-          <Show when={clerk()?.user} fallback={<a href="/sign-in">Sign In</a>}>
-            <div use:clerkUI="UserButton"></div>
+        <Show when={auth().isLoaded}>
+          <Show when={auth()?.userId} fallback={<a href="/sign-in">Sign In</a>}>
+            <UserButton />
           </Show>
         </Show>
       </div>
