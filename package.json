@@ -10,7 +10,7 @@
     "format": "prettier --write \"{src,test}/**/*.{ts,tsx}\""
   },
   "dependencies": {
-    "@clerk/clerk-sdk-node": "^5.0.12",
+    "@clerk/backend": "^1.4.1",
     "@solidjs/meta": "^0.29.4",
     "@solidjs/router": "^0.13.6",
     "@solidjs/start": "^1.0.2",

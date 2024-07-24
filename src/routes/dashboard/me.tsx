@@ -1,7 +1,7 @@
-import { clerkClient } from '@clerk/clerk-sdk-node';
 import { Title } from '@solidjs/meta';
 import { cache, createAsync, redirect } from '@solidjs/router';
 import { getRequestEvent } from 'solid-js/web';
+import { clerkClient } from '~/clerkClient';
 
 const getUser = cache(async () => {
   'use server';

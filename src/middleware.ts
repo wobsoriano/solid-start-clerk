@@ -1,12 +1,10 @@
-import { clerkClient } from '@clerk/clerk-sdk-node';
 import { createMiddleware } from '@solidjs/start/middleware';
+import { clerkClient } from './clerkClient';
 
 export default createMiddleware({
   onRequest: [
     async event => {
-      const requestState = await clerkClient.authenticateRequest(event.request, {
-        publishableKey: process.env.VITE_CLERK_PUBLISHABLE_KEY
-      });
+      const requestState = await clerkClient.authenticateRequest(event.request);
 
       const locationHeader = requestState.headers.get('location');
 
